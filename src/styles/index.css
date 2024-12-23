@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 ::-webkit-scrollbar {
-    width: 8px; /* Ancho del scroll */
+    width: 3px; /* Ancho del scroll */
+    height: 3px;
   }
   
   ::-webkit-scrollbar-thumb {

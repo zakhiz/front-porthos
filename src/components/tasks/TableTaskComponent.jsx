@@ -42,15 +42,18 @@ const TableTaskComponent = () => {
                             <option value="done">Done</option>
                         </select>
                    </div>
-                </div>
-                <div className="flex justify-around gap-4 w-[70vw] h-[80vh] border-lime-400 mt-4 border-t-2 border-b-2 border-r-2 bg-black p-6 rounded-md">
-                    
-                    <OpenComponenTask tasks={openTasks}/>
-                    <InProgressComponent tasks={inProgressTasks}/>
-                    <DoneComponent tasks={doneTasks}/>
-                    <div>
+                   <div className="mt-4 lg:hidden">
                         <button  onClick={handleOpenModal} className="text-white hover:text-black bg-lime-400 px-4 py-3 rounded-md font-semibold">CREAR TAREA</button>
                     </div>
+                </div>
+                <div className="flex xl:justify-around  gap-4 2xl:w-[70vw] w-[90vw] h-[80vh] overflow-x-auto  border-lime-400 mt-4 border-t-2 border-b-2 border-r-2 bg-black p-6 rounded-md ">
+                        
+                            <OpenComponenTask tasks={openTasks}/>
+                            <InProgressComponent tasks={inProgressTasks}/>
+                            <DoneComponent tasks={doneTasks}/>
+                        <div className="xl:block hidden">
+                            <button  onClick={handleOpenModal} className="text-white hover:text-black bg-lime-400 px-4 py-3 rounded-md font-semibold">CREAR TAREA</button>
+                        </div>
                 </div>
                 <CreateTaskModal isOpen={isModalOpen} onClose={handleCloseModal} />
         </div>
