@@ -59,7 +59,7 @@ const CreateTaskModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-20 flex items-center justify-center z-50">
-      <div className="bg-black p-10 w-[600px] rounded-md border-lime-400 border-t-2 border-b-2 border-r-2">
+      <div className="bg-black p-10 xl:w-[600px] w-[300ppx] rounded-md border-lime-400 border-t-2 border-b-2 border-r-2">
         <h2 className="text-xl font-bold mb-4 text-white">Crear nueva tarea</h2>
         <input
           type="text"
@@ -93,7 +93,7 @@ const CreateTaskModal = ({ isOpen, onClose }) => {
           className="w-full mb-4 p-2 border-lime-300 border-b-2 text-black"
         />
 
-        <div className="flex justify-end gap-4">
+        <div className="flex xl:justify-end justify-center gap-4">
           <button
             onClick={handleClose}
             className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
