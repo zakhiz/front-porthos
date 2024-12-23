@@ -23,7 +23,6 @@ export const RegisterService = async ( data ) => {
         return res.data
         
     } catch (error) {
-        console.log(error);
         throw error;
     }
 
@@ -37,7 +36,6 @@ export const LogoutUser = async () => {
         return res
     } catch (error) {
 
-        console.log(error);
         throw error;
     }
 

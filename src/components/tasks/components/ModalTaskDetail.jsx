@@ -36,7 +36,6 @@ const ModalTaskDetail = ({ isOpen, onClose, task }) => {
         return `${year}-${month}-${day}`;
     };
 
-
     const handleChange = (e) => {
       const { name, value } = e.target;
       console.log(name, value);
@@ -59,7 +58,6 @@ const ModalTaskDetail = ({ isOpen, onClose, task }) => {
 
     const handleUpdate = async () => {
    
-      
       const res = await updateTask(task.id, {...taskData,user_id: usrId});
       updateTaskInContext(res.data)      
       if (res.status == 200) {

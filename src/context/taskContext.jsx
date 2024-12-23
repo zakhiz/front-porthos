@@ -46,5 +46,4 @@ export const TaskProvider = ({ children }) => {
   );
 };
 
-// Hook personalizado para usar el contexto
 export const useTaskContext = () => useContext(TaskContext);

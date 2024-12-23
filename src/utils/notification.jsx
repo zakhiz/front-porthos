@@ -1,17 +1,15 @@
 import { toast } from "react-toastify";
 
-// Configuración genérica para las notificaciones
 const defaultOptions = {
   position: "top-right",
-  autoClose: 3000, // Tiempo en milisegundos para cerrar automáticamente
+  autoClose: 3000,
   hideProgressBar: false,
   closeOnClick: true,
   pauseOnHover: true,
   draggable: true,
-  theme: "colored", // Cambia el tema de las notificaciones
+  theme: "colored",
 };
 
-// Función genérica para mostrar notificaciones dinámicas
 export const showToast = (message, type = "info", customOptions = {}) => {
   const options = { ...defaultOptions, ...customOptions };
 

@@ -1,7 +1,5 @@
 import ApiConfig from "../services/api.service";
-import { showToast } from "../utils/notification";
 
-// Obtener todas las tareas
 export const getTasks = async (id) => {
   try {
     const response = await ApiConfig.get(`/task?id=${id}`);
@@ -31,7 +29,6 @@ export const createTask = async (taskData) => {
   }
 };
 
-// Actualizar una tarea
 export const updateTask = async (taskId, taskData) => {
   try {
     const response = await ApiConfig.put(`/task/uptask?id=${taskId}`, taskData);
@@ -42,7 +39,6 @@ export const updateTask = async (taskId, taskData) => {
   }
 };
 
-// Eliminar una tarea
 export const deleteTask = async (taskId) => {
   try {
     const response = await ApiConfig.delete(`/task/deltask?id=${taskId}`);
