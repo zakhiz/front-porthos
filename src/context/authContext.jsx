@@ -9,7 +9,7 @@ const uid = import.meta.env.VITE_ID_USER;
 export const AuthProvider = ({ children }) => {
     
   const [user, setUser] = useState(null);
-  const [usrId, setUsrId] = useState(getFromLocalStorage(uid));
+  const [usrId, setUsrId] = useState( () => getFromLocalStorage(uid));
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,13 +29,9 @@ export const AuthProvider = ({ children }) => {
     setUser({ token: userData.token });
   };
 
-  const dataUser = (id) => {
-      const idUserExist = getFromLocalStorage(uid);
-      if (!idUserExist) {
+  const dataUser = async (id) => {
           saveToLocalStorage(uid, id);
-      }else{
-          setUsrId(idUserExist)
-      }
+          setUsrId(id)
   }
 
   const logoutContext = () => {

@@ -6,24 +6,26 @@ import { showToast } from "../utils/notification";
 const TaskContext = createContext();
 
 export const TaskProvider = ({ children }) => {
+
   const [tasks, setTasks] = useState([]); 
   const { usrId } = useAuth();
-
-  useEffect(() => {
-    if (!usrId) return;
   
-    const fetchTasks = async () => {
-      try {
-        const fetchedTasks = await getTasks(usrId);
-        setTasks(fetchedTasks.data);
-        showToast("Tareas encontradas", "success");
-      } catch (error) {
-        showToast("No hay tareas cargadas", "error");
-      }
-    };
-  
-    fetchTasks();
-  }, [usrId]);
+    useEffect(() => {
+      if (!usrId) return;
+    
+      const fetchTasks = async () => {
+        try {
+          const fetchedTasks = await getTasks(usrId);
+          setTasks(fetchedTasks.data);
+          showToast("Tareas encontradas", "success");
+        } catch (error) {
+          showToast("No hay tareas cargadas", "error");
+        }
+      };
+    
+      fetchTasks();
+      
+    }, [usrId]);
 
   const removeTask = (taskId) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));

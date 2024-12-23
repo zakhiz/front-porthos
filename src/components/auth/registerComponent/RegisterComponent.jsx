@@ -6,6 +6,7 @@ import EyeClose from "../../../assets/icons/eyeClose";
 import { useAuth } from "../../../context/authContext";
 import { showToast } from "../../../utils/notification";
 
+
 const RegisterComponent = () => {
     const { dataUser } = useAuth();
 
@@ -35,7 +36,6 @@ const RegisterComponent = () => {
         e.stopPropagation();
 
          try {
-                console.log(registerData);
                 
                 if (!registerData.fullName || !registerData.email || !registerData.password) {
                     showToast('Todos los campos son obligatorios','error')
@@ -43,14 +43,12 @@ const RegisterComponent = () => {
                 }
            
                 const response = await RegisterService({fullName: registerData.fullName, email: registerData.email, password: registerData.password});
-                console.log(response);
                 
-                dataUser(response.user.id)
-
-                if (response) {
-                    navigate("/login");
-                    showToast('Se creo correctamente la cuenta, inicie sesión', 'success')
+                if (response.status == 200) {
+                    navigate('/login');
+                    showToast(`Hola ${response.user.fullName || 'Usuario'}, se creo correctamente la cuenta, inicie sesión`, 'success')
                 }
+
 
         } catch (err) {
                 showToast('Ocurrio un error al crear tu cuenta', 'error')

@@ -37,15 +37,11 @@ const Login = () => {
             }
             
             const response = await LoginService(LoginData.email, LoginData.password);
-            
-            if (response) {
-                dataUser(response.data.dataUser.id);
 
+                dataUser(response.data.dataUser.id);
                 login(response.data.token);
-                
                 navigate("/");
                 showToast(`Hola, que tal? ${response.data.dataUser.fullName} `, "success")
-            }
         } catch (err) {
             showToast('Ocurrio un error al iniciar sesión', "error")
             
